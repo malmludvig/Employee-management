@@ -13,7 +13,7 @@ namespace UserUi
 
             var EmployeeList = CSVOperations.GetEmployeesFromCSV();
 
-            LoginAndValidation.AdminLogin();
+            LoginAndValidation.AdminLogin(EmployeeList);
             string inputName = "";
 
             while (true)

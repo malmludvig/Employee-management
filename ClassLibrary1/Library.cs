@@ -46,13 +46,30 @@ namespace EmployeeClassLibrary
     public class LoginAndValidation
     {
 
-        public static void AdminLogin()
+        public static bool LoginVerification(string loginName, string loginPassword)
+        {
+            bool returnedBool = false;
+            List<object> loginList = CSVOperations.GetEmployeesFromCSV();
+
+            foreach (Employee item in loginList)
+
+            {
+                if (loginName == item.Id && loginPassword == item.Password)
+                {
+                    returnedBool = true;
+                }
+            }
+
+            return returnedBool;
+        }
+
+        public static void AdminLogin(List<object> employeeList)
         {
             string inputName = "";
             while (true)
             {
                 Console.WriteLine("Welcome to the admin interface. Please login:");
-                Console.WriteLine("Name:"); inputName = Console.ReadLine();
+                Console.WriteLine("ID:"); inputName = Console.ReadLine();
                 Console.WriteLine("Password"); string inputPassword = Console.ReadLine();
 
                 inputPassword = Encryptor.MD5Hash(inputPassword);
@@ -62,7 +79,18 @@ namespace EmployeeClassLibrary
                     if (CSVOperations.IsAdminOrNot(inputName, inputPassword))
                     {
                         Console.Clear();
-                        Console.WriteLine("Welcome, " + inputName + "!");
+
+
+                        foreach (Employee item in employeeList)
+
+                        {
+                            if (item.Id == inputName)
+
+                            {
+                                Console.WriteLine("Welcome, " + item.Name + "!");
+                            }
+                        }
+
                         break;
                     }
                     else
@@ -80,15 +108,13 @@ namespace EmployeeClassLibrary
             }
         }
 
-        public static string UserLogin()
+        public static string UserLogin(List<object> employeeList)
         {
             string inputName = "";
-
             while (true)
             {
-
                 Console.WriteLine("Welcome to the user interface. Please login:");
-                Console.WriteLine("Name:"); inputName = Console.ReadLine();
+                Console.WriteLine("ID:"); inputName = Console.ReadLine();
                 Console.WriteLine("Password"); string inputPassword = Console.ReadLine();
 
                 inputPassword = Encryptor.MD5Hash(inputPassword);
@@ -98,13 +124,28 @@ namespace EmployeeClassLibrary
                     if (!CSVOperations.IsAdminOrNot(inputName, inputPassword))
                     {
                         Console.Clear();
-                        Console.WriteLine("Welcome, " + inputName + "!");
+
+
+                        foreach (Employee item in employeeList)
+
+                        {
+                            if (item.Id == inputName)
+
+                            {
+                                Console.WriteLine("Welcome, " + item.Name + "!");
+                                inputName = item.Name;
+                            }
+                        }
+
                         break;
                     }
                     else
                     {
-                        Console.WriteLine("Access denied. Only non-Admins can login here.");
+
+                        Console.WriteLine("Access denied. Only users can login here.");
+
                         continue;
+
                     }
                 }
                 else
@@ -113,8 +154,8 @@ namespace EmployeeClassLibrary
                     continue;
                 }
             }
-
             return inputName;
+
         }
 
 
@@ -518,11 +559,6 @@ namespace EmployeeClassLibrary
                                 break;
                             }
 
-
-
-
-
-
                         }
                         else if (inputNumber == "3")
                         {
@@ -632,7 +668,7 @@ namespace EmployeeClassLibrary
 
             {
 
-                if (loginName == item.Name && loginPassword == item.Password)
+                if (loginName == item.Id && loginPassword == item.Password)
                 {
                     if (item.IsAdmin == true)
                     {
@@ -652,7 +688,7 @@ namespace EmployeeClassLibrary
             foreach (Employee item in loginList)
 
             {
-                if (loginName == item.Name && loginPassword == item.Password)
+                if (loginName == item.Id && loginPassword == item.Password)
                 {
                     returnedBool = true;
                 }

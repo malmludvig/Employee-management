@@ -9,10 +9,11 @@ namespace UserUi
     {
         static void Main(string[] args)
         {
-
-            string inputName = LoginAndValidation.UserLogin();
-
             var EmployeeList = CSVOperations.GetEmployeesFromCSV();
+
+            string inputName = LoginAndValidation.UserLogin(EmployeeList);
+             
+
 
             while (true)
             {

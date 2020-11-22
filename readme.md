@@ -10,5 +10,10 @@ Min extra funktionalitet som jag har lagt till i uppgiften för VG-kravet är fr
 
 Kända buggar:
 
-Om man loggar in på UserUi som user och sedan byter namn på sig själv så kommer inte funktionen "" att fungera längre. Jag vet hur man ska lösa det men jag hann inte.
+Om man loggar in på UserUi som user och sedan byter namn på sig själv så kommer inte funktionenerna 
+
+Write 2 to view your info
+Write 3 to edit your info.
+
+att fungera längre. Jag vet hur man ska lösa det men jag hann inte.
 
