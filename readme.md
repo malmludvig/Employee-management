@@ -7,6 +7,7 @@ Min extra funktionalitet som jag har lagt till i uppgiften för VG-kravet är fr
 
 -Alla id:n slumpas från Guid, och tilldelas till Employee.Id som en sträng
 -Alla lösenord använder MD5 när de sparas. Lösenorden som väljs sparas med andra ord aldrig i klartext.
+Tips: Alla lösenord som är sparade är lösenordet "123".  Det är snabbare att testa programmet för dig och mig, så.
 
 Kända buggar:
 
