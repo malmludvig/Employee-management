@@ -11,6 +11,7 @@ Tips: Alla lösenord som är sparade är lösenordet "123".  Det är snabbare at
 
 Kända buggar:
 
+//FIXED
 Om man loggar in på UserUi som user och sedan byter namn på sig själv så kommer inte funktionenerna 
 
 Write 2 to view your info
