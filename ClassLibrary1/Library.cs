@@ -254,9 +254,10 @@ namespace EmployeeClassLibrary
             }
         }
 
-        public static void PrintCurrentUser(string inputName, List<object> EmployeeList)
+        public static string PrintCurrentUser(string inputName, List<object> EmployeeList)
 
         {
+            string returnedString = "";
 
             Console.WriteLine("Your info from the CSV file:");
             foreach (Employee item in EmployeeList)
@@ -272,6 +273,8 @@ namespace EmployeeClassLibrary
                     Console.WriteLine("Admin: " + item.IsAdmin + "\n");
                 }
             }
+
+            return returnedString;
         }
 
         public static void AddEmployee(List<object> EmployeeList)
@@ -333,6 +336,7 @@ namespace EmployeeClassLibrary
             }
 
             EmployeeList.Add(newEmployee);
+
 
         }
 
@@ -480,8 +484,10 @@ namespace EmployeeClassLibrary
 
         }
 
-        public static void EditCurrentUser(string inputName, List<object> EmployeeList)
+        public static string EditCurrentUser(string inputName, List<object> EmployeeList)
         {
+            string returnedName = inputName;
+            string newName = "";
             Console.Clear();
             string inputNumber = "";
             int i = 0;
@@ -508,7 +514,7 @@ namespace EmployeeClassLibrary
 
                                 Console.WriteLine(item.Name);
                                 Console.WriteLine("Enter a new name:");
-                                string newName = Console.ReadLine();
+                                newName = Console.ReadLine();
 
                                 if (!LoginAndValidation.ValidateInput(newName))
 
@@ -602,6 +608,8 @@ namespace EmployeeClassLibrary
             Console.ReadKey();
             Console.WriteLine();
             Console.Clear();
+
+            return newName;
         }
 
         public static void RemoveEmployee(List<object> EmployeeList)

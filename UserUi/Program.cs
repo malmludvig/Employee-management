@@ -36,15 +36,16 @@ namespace UserUi
                 if (x == "2")
                 {
                     Console.Clear();
+                    
                     CSVOperations.PrintCurrentUser(inputName, EmployeeList);
+                    continue;
                 }
 
                 if (x == "3")
                 {
-                    CSVOperations.EditCurrentUser(inputName, EmployeeList);
+                    inputName = CSVOperations.EditCurrentUser(inputName, EmployeeList);
                     continue;
                 }
-
 
                 if (x == "4")
                 {
