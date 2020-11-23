@@ -599,7 +599,6 @@ namespace EmployeeClassLibrary
             if (inputNumber == "4")
             {
                 Console.WriteLine("Editing complete. No changes were made. Press any key to exit.");
-
             }
             else
             {

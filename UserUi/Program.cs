@@ -36,7 +36,6 @@ namespace UserUi
                 if (x == "2")
                 {
                     Console.Clear();
-                    
                     CSVOperations.PrintCurrentUser(inputName, EmployeeList);
                     continue;
                 }
